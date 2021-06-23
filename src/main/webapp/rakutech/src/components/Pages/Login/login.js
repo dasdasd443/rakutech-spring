@@ -1,6 +1,7 @@
 import LoginCSS from './login.css';
 import Image from '../../exportFiles/exportImages';
 import {Link} from 'react-router-dom';
+import {useEffect, useCallback} from 'react';
 let images = new Image();
 const Login = () => {
     const LoginUser = (e) => {
@@ -52,6 +53,22 @@ const Login = () => {
     const Background = {
         backgroundImage: `url(${images.Background()})`
     }
+
+    const postData = useCallback(async function postData(){
+        const response = fetch('http://localhost/8080/api/user/login', {
+            method: 'POST',
+            body: JSON.stringify({name: "Victor", password: 12345})
+        }).then(res => res.json());
+
+        console.log(response);
+    });
+
+    useEffect(() => {
+        let mounted = true;
+        postData();
+
+        return () => mounted = false;
+    });
     return (
         <section style={LoginCSS}>
             <section className="login-container--background"></section>

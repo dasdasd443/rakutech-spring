@@ -3,12 +3,19 @@ package com.rakutech.demo.user;
 
 import org.springframework.data.annotation.Id;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="user")
 public class User {
-    private @Id long id;
-    private String name;
-    private String username;
-    private String password;
-    private String email;
+    private @Id @GeneratedValue @Column(name="id") long id;
+    private @Column(name="name") String name;
+    private @Column(name="username") String username;
+    private @Column(name="password") String password;
+    private @Column(name="email") String email;
 
     public User() {
     }
