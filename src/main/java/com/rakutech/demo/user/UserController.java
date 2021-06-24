@@ -6,7 +6,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path="api/user")
-@CrossOrigin(origins="http://localhost:3000")
+@CrossOrigin
 public class UserController {
 
     @GetMapping("/")
