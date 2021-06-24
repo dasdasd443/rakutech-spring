@@ -1,17 +1,15 @@
 package com.rakutech.demo.user;
 
 
-import org.springframework.data.annotation.Id;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Table;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name="user")
 public class User {
-    private @Id @GeneratedValue @Column(name="id") long id;
+    private @Id
+    @GeneratedValue @Column(name="id") long id;
     private @Column(name="name") String name;
     private @Column(name="username") String username;
     private @Column(name="password") String password;
