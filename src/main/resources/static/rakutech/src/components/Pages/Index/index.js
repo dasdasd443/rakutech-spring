@@ -16,7 +16,12 @@ const Index = () => {
     const newsletterelem = (newsletterDisplay === 1)?"":<Newsletter classsName="newsletter"/>;
 
     const getResponse = useCallback(async function getResponse(){
-        const response = fetch('http://localhost:8080/api/user').then(res => res.json());
+        const response = fetch('http://localhost:8080/api/user/login', {
+            method:'POST',
+            body: {
+                user: "Victor"
+            }
+        }).then(res => res.json());
         console.log(response);
     });
     useEffect(() => {

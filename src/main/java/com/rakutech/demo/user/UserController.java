@@ -2,6 +2,8 @@ package com.rakutech.demo.user;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path="api/user")
 @CrossOrigin(origins="http://localhost:3000")
@@ -18,7 +20,14 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String login(){
-        return "data received";
+    public List<User> login(){
+        return List.of(
+                new User(
+                        "Victor Chiong",
+                        "victor",
+                        "12345678",
+                        "cjvicro@gmail.com"
+                )
+        );
     }
 }
