@@ -7,18 +7,16 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path="api/user")
-@CrossOrigin
+@CrossOrigin(origins="http://localhost:3000")
 public class UserController {
 
     private final UserService userService;
 
-    @Autowired
-    private final UserRepository userRepository;
+
 
     @Autowired
     public UserController(UserService userService, UserRepository userRepository) {
         this.userService = userService;
-        this.userRepository = userRepository;
     }
 
 
@@ -35,5 +33,10 @@ public class UserController {
     @GetMapping("/users")
     public List<User> users(){
         return userService.userList();
+    }
+
+    @PostMapping("/register")
+    public String registerUser(@RequestBody User user){
+        return userService.registerUser(user);
     }
 }
