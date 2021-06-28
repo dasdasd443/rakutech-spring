@@ -1,12 +1,10 @@
 package com.rakutech.demo.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -30,6 +28,10 @@ public class UserService {
     }
     public List<User> userList(){
         return userRepository.findusers();
+    }
+
+    public Optional<User> loginUser(User user){
+        return userRepository.findUser(user.getEmail(), user.getPassword());
     }
 
     public String registerUser(User user){

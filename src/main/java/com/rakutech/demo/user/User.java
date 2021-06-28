@@ -10,10 +10,10 @@ import javax.persistence.*;
 public class User {
     private @Id
     @GeneratedValue @Column(name="id") long id;
-    private @Column(name="name") String name;
-    private @Column(name="username") String username;
-    private @Column(name="password") String password;
-    private @Column(name="email") String email;
+    private @Column(name="name", length=50) String name;
+    private @Column(name="username", length=50) String username;
+    private @Column(name="password", length=50) String password;
+    private @Column(name="email",unique = true, length=50) String email;
 
     public User() {
     }

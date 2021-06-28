@@ -3,7 +3,9 @@ package com.rakutech.demo.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.text.html.Option;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path="api/user")
@@ -38,5 +40,10 @@ public class UserController {
     @PostMapping("/register")
     public String registerUser(@RequestBody User user){
         return userService.registerUser(user);
+    }
+
+    @PostMapping("/login")
+    public Optional<User> loginUser(@RequestBody User user){
+        return userService.loginUser(user);
     }
 }
